@@ -24,24 +24,23 @@ public class ServidorECHO {
 		                 PrintWriter salida = new PrintWriter(
 		                      new OutputStreamWriter(cliente.getOutputStream()),true);
 		                  String datos = entrada.readLine();
+		                 
 		                  if (datos.equals("q")){
-		                	    	  exit=false;
+		                	  salida.println("exit");
+		                	  exit=false;
 		                  }
-		                  
+		                  if (exit){
 		                  switch (datos) {
-						case "t1":
+						case "a1":
 							salida.println("t1v"+rnd.nextInt(1024));
 							break;
-						case "t2":
+						case "a2":
 							salida.println("t1v"+rnd.nextInt(1024));
 							break;
-						case "t3":
-							salida.println("t1v"+rnd.nextInt(1024));
-								break;
-						case "h1":
-							salida.println("h1v"+rnd.nextInt(1024));
+						case "a3":
+							salida.println("p1v"+rnd.nextInt(1024));
 							break;
-						case "p1":
+						case "a4":
 							salida.println("p1v"+rnd.nextInt(1024));
 							break;
 						case "r1":
@@ -72,7 +71,7 @@ public class ServidorECHO {
 							salida.println("Comando Desconocido");
 							break;
 						}
-		                  
+		                  }
 		                      System.out.println("Movil: "+datos);
 		                 }while(exit);
 		                 cliente.close();
