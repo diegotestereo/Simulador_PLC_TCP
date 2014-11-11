@@ -15,15 +15,22 @@ public class ServidorECHO {
 		 Random rnd = new Random();
 		   try {
 		          ServerSocket sk = new ServerSocket(5001);
-		          while (Serv) {
+		          while (Serv) { 
+		        	     System.out.println();
+		        	     System.out.println("********************************************************");
+		                 System.out.println("***********   Servidor esperando Cliente   *************");
+		                 System.out.println("********************************************************");
+		                 System.out.println();
 		                 Socket cliente = sk.accept();
+		                 System.out.println();
+		                 System.out.println("----------------   Ingreso Cliente   -------------------");
+		                 System.out.println();
 		               Boolean exit=true;
 					do{
-		                 BufferedReader entrada = new BufferedReader(
-		                         new InputStreamReader(cliente.getInputStream()));
-		                 PrintWriter salida = new PrintWriter(
-		                      new OutputStreamWriter(cliente.getOutputStream()),true);
-		                  String datos = entrada.readLine();
+		                 BufferedReader entrada = new BufferedReader(new InputStreamReader(cliente.getInputStream()));
+		                 PrintWriter salida = new PrintWriter(new OutputStreamWriter(cliente.getOutputStream()),true);
+		                
+		                 String datos = entrada.readLine();
 		                 
 		                  if (datos.equals("q")){
 		                	  salida.println("exit");
@@ -75,7 +82,7 @@ public class ServidorECHO {
 		                      System.out.println("Movil: "+datos);
 		                 }while(exit);
 		                 cliente.close();
-		                 System.out.println("Cerro sesion !!!");
+		                 System.out.println("************  Cerro sesion Cliente !!!  ********************");
 		          }
 		   } catch (IOException e) {
 		          System.out.println(e);
