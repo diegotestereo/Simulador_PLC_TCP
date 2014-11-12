@@ -82,7 +82,7 @@ public class ServidorECHO {
 		                      System.out.println("Movil: "+datos);
 		                 }while(exit);
 		                 cliente.close();
-		                 System.out.println("************  Cerro sesion Cliente !!!  ********************");
+		                 System.out.println("------------  Cerro sesion Cliente !!!  --------------------");
 		          }
 		   } catch (IOException e) {
 		          System.out.println(e);
