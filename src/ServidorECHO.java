@@ -31,7 +31,12 @@ public class ServidorECHO {
 		                 PrintWriter salida = new PrintWriter(new OutputStreamWriter(cliente.getOutputStream()),true);
 		                
 		                 String datos = entrada.readLine();
-		                 
+		                 try {
+							Thread.sleep(1000);
+						} catch (InterruptedException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
 		                  if (datos.equals("q")){
 		                	  salida.println("exit");
 		                	  exit=false;
