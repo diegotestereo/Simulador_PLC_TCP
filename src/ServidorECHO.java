@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
+import java.net.InetAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Random;
@@ -17,10 +18,16 @@ public class ServidorECHO {
 		          ServerSocket sk = new ServerSocket(5001);
 		          while (Serv) { 
 		        	     System.out.println();
+		        	     //System.out.println(InetAddress.getLocalHost().getHostAddress());
+		        	 //    System.out.println(InetAddress.getLocalHost().getp());
 		        	     System.out.println("********************************************************");
-		                 System.out.println("***********   Servidor esperando Cliente   *************");
+		                 System.out.println("************  Servidor esperando Cliente   *************");
+		                 System.out.println("************                               *************");
+		                 System.out.println("************    IP: "+InetAddress.getLocalHost().getHostAddress()+":5001     *************");
 		                 System.out.println("********************************************************");
+			                 
 		                 System.out.println();
+		                 
 		                 Socket cliente = sk.accept();
 		                 System.out.println();
 		                 System.out.println("----------------   Ingreso Cliente   -------------------");
@@ -32,7 +39,7 @@ public class ServidorECHO {
 		                
 		                 String datos = entrada.readLine();
 		                 try {
-							Thread.sleep(1000);
+							Thread.sleep(500);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
