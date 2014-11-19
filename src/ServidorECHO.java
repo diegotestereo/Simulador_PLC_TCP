@@ -39,7 +39,7 @@ public class ServidorECHO {
 		                
 		                 String datos = entrada.readLine();
 		                 try {
-							Thread.sleep(500);
+							Thread.sleep(250);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -49,45 +49,45 @@ public class ServidorECHO {
 		                	  exit=false;
 		                  }
 		                  if (exit){
-		                  switch (datos) {
+		                  switch (datos.substring(0,2)) {
 						case "a1":
 							salida.println("t1v"+rnd.nextInt(1024));
 							break;
 						case "a2":
-							salida.println("t1v"+rnd.nextInt(1024));
+							salida.println("t2v"+rnd.nextInt(1024));
 							break;
 						case "a3":
-							salida.println("p1v"+rnd.nextInt(1024));
+							salida.println("h1v"+rnd.nextInt(1024));
 							break;
 						case "a4":
-							salida.println("p1v"+rnd.nextInt(1024));
+							salida.println("h2v"+rnd.nextInt(1024));
 							break;
 						case "r1":
-							salida.println("r1v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r2":
-							salida.println("r2v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r3":
-							salida.println("r3v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r4":
-							salida.println("r4v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r5":
-							salida.println("r5v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r6":
-							salida.println("r6v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r7":
-							salida.println("r7v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						case "r8":
-							salida.println("r8v"+rnd.nextInt(2));
+							salida.println(datos);
 							break;
 						default:
-							salida.println("Comando Desconocido");
+							salida.println("error: "+datos);
 							break;
 						}
 		                  }
