@@ -48,11 +48,12 @@ public class ServidorECHO {
 							e.printStackTrace();
 						}*/
 		                  if (datos.equals("q")){
-		                	  salida.println("exit");
+		                	  salida.print("ID"+ID);
+		                	  salida.println("ex");
 		                	  exit=false;
 		                  }
 		                  if (exit){
-		                	  System.out.println("entro"+datos.substring(4,6));
+		                	 // System.out.println("entro"+datos.substring(4,6));
 		                  switch (datos.substring(4,6)) {
 						
 						case "r1":
@@ -113,7 +114,7 @@ public class ServidorECHO {
 									"r6v"+rnd.nextInt(2)+"r7v"+rnd.nextInt(2)+"r8v"+rnd.nextInt(2));
 							break;
 						default:
-							salida.println("ID000er:"+datos.substring(4, 6));
+							salida.println("ID000er"+datos.substring(4, 6));
 							break;
 						}
 		                  }
