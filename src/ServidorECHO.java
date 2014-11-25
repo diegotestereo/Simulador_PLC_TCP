@@ -10,20 +10,23 @@ import java.net.Socket;
 import java.util.Random;
 
 public class ServidorECHO {
-
+	 static final String ID ="000";
+	 
+	 
 	 public static void main(String args[]) {
 		 Boolean Serv=true;
+		
 		 Random rnd = new Random();
 		   try {
-		          ServerSocket sk = new ServerSocket(5001);
+		          ServerSocket sk = new ServerSocket(5000);
 		          while (Serv) { 
 		        	     System.out.println();
 		        	     //System.out.println(InetAddress.getLocalHost().getHostAddress());
 		        	 //    System.out.println(InetAddress.getLocalHost().getp());
 		        	     System.out.println("********************************************************");
 		                 System.out.println("************  Servidor esperando Cliente   *************");
-		                 System.out.println("************                               *************");
-		                 System.out.println("************    IP: "+InetAddress.getLocalHost().getHostAddress()+":5001     *************");
+		                 System.out.println("************      ID:"+ID+"                   *************");
+		                 System.out.println("************    IP: "+InetAddress.getLocalHost().getHostAddress()+":5000     *************");
 		                 System.out.println("********************************************************");
 			                 
 		                 System.out.println();
@@ -38,56 +41,79 @@ public class ServidorECHO {
 		                 PrintWriter salida = new PrintWriter(new OutputStreamWriter(cliente.getOutputStream()),true);
 		                
 		                 String datos = entrada.readLine();
-		                 try {
+		                 /*try {
 							Thread.sleep(250);
 						} catch (InterruptedException e) {
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}
+						}*/
 		                  if (datos.equals("q")){
 		                	  salida.println("exit");
 		                	  exit=false;
 		                  }
 		                  if (exit){
-		                  switch (datos.substring(0,2)) {
-						case "a1":
-							salida.println("t1v"+rnd.nextInt(1024));
-							break;
-						case "a2":
-							salida.println("t2v"+rnd.nextInt(1024));
-							break;
-						case "a3":
-							salida.println("h1v"+rnd.nextInt(1024));
-							break;
-						case "a4":
-							salida.println("h2v"+rnd.nextInt(1024));
-							break;
+		                	  System.out.println("entro"+datos.substring(4,6));
+		                  switch (datos.substring(4,6)) {
+						
 						case "r1":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r1v"+rnd.nextInt(2));
 							break;
 						case "r2":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r2v"+rnd.nextInt(2));
 							break;
 						case "r3":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r3v"+rnd.nextInt(2));
 							break;
 						case "r4":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r4v"+rnd.nextInt(2));
 							break;
 						case "r5":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r5v"+rnd.nextInt(2));
 							break;
 						case "r6":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r6v"+rnd.nextInt(2));
 							break;
 						case "r7":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r7v"+rnd.nextInt(2));
 							break;
 						case "r8":
-							salida.println(datos);
+							salida.print("ID"+ID);
+							salida.println("r8v"+rnd.nextInt(2));
+							break;
+						case "te":
+							int Tinf = 19 ;
+							int Tsup = 25; 
+
+							int TempFinal = (int)(Math.random()*(Tsup - Tinf) + Tinf); 
+							salida.print("ID"+ID);
+							salida.println("te"+String.valueOf(TempFinal));
+							
+						break;
+						case "st":
+						  
+						   
+							salida.print("ID"+ID);
+							
+							for (int i=1;i<5;i++){
+								 String Svalor =String.valueOf(rnd.nextInt(1024));
+									String padded = "0000".substring(Svalor.length()) + Svalor;
+									salida.print("a"+i+"v"+padded);
+								
+							}
+						
+							salida.println("r1v"+rnd.nextInt(2)+"r2v"+rnd.nextInt(2)+
+									"r3v"+rnd.nextInt(2)+"r4v"+rnd.nextInt(2)+"r5v"+rnd.nextInt(2)+
+									"r6v"+rnd.nextInt(2)+"r7v"+rnd.nextInt(2)+"r8v"+rnd.nextInt(2));
 							break;
 						default:
-							salida.println("error: "+datos);
+							salida.println("ID000er:"+datos.substring(4, 6));
 							break;
 						}
 		                  }
