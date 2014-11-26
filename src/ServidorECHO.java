@@ -53,7 +53,8 @@ public class ServidorECHO {
 		                	  exit=false;
 		                  }
 		                  if (exit){
-		                	 // System.out.println("entro"+datos.substring(4,6));
+		                	 System.out.println("entro"+datos.substring(4,6));
+		                	 salida.print(" ");
 		                  switch (datos.substring(4,6)) {
 						
 						case "r1":
@@ -94,7 +95,7 @@ public class ServidorECHO {
 
 							int TempFinal = (int)(Math.random()*(Tsup - Tinf) + Tinf); 
 							salida.print("ID"+ID);
-							salida.println("te"+String.valueOf(TempFinal));
+							salida.println("tev"+String.valueOf(TempFinal)+".0");
 							
 						break;
 						case "st":
@@ -114,7 +115,7 @@ public class ServidorECHO {
 									"r6v"+rnd.nextInt(2)+"r7v"+rnd.nextInt(2)+"r8v"+rnd.nextInt(2));
 							break;
 						default:
-							salida.println("ID000er"+datos.substring(4, 6));
+							salida.println("ID000"+datos.substring(4, 6));
 							break;
 						}
 		                  }
